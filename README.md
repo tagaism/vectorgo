@@ -1,2 +1,2 @@
 # vectorgo
-Simple vector library written on golang
+Simple 3D vector library written on golang
