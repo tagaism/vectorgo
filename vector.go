@@ -2,6 +2,7 @@ package vector
 
 import (
 	"fmt"
+	"math"
 )
 
 type Vector struct {X, Y float64}
@@ -9,6 +10,10 @@ type Vector struct {X, Y float64}
 func Create(x, y float64) Vector{
 	v := Vector{x, y}
 	return v
+}
+
+func (a *Vector) Copy() Vector {
+	return Vector{a.X, a.Y}
 }
 
 // Vectors logic
@@ -25,6 +30,18 @@ func (a *Vector) Mult(i float64) {
 func (a *Vector) Div(i float64) {
 	(*a).X /= i
 	(*a).Y /= i
+}
+
+// Calculate magnitude (length) of the vector
+func (a *Vector) Mag() float64 {
+	return math.Sqrt(a.X*a.X + a.Y*a.Y)
+}
+
+// Normilize (unify) vector
+func (a *Vector) Normal() {
+	mag := (*a).Mag()
+	(*a).X /= mag
+	(*a).Y /= mag
 }
 
 func Printlen(a *Vector) {
