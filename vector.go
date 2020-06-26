@@ -22,6 +22,19 @@ func (a *Vector) Add(b Vector) {
 	(*a).Y += b.Y
 }
 
+func (a *Vector) Sub(b Vector) {
+	(*a).X -= b.X
+	(*a).Y -= b.Y
+}
+
+func Sub(a, b Vector) Vector {
+	c := Vector{
+		X: a.X - b.X,
+		Y: a.Y - b.Y,
+	}
+	return c
+}
+
 func (a *Vector) Mult(i float64) {
 	(*a).X *= i
 	(*a).Y *= i
