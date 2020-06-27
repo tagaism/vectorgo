@@ -57,6 +57,13 @@ func (a *Vector) Normal() {
 	(*a).Y /= mag
 }
 
-func Printlen(a *Vector) {
-	fmt.Println((*a).X, (*a).Y)
+func (a *Vector) Limit(max float64) {
+	mag := (*a).Mag()
+	delim := mag / max
+	(*a).X /= delim
+	(*a).Y /= delim
+}
+
+func PrintVec(a *Vector) {
+	fmt.Println(*a)
 }
